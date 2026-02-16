@@ -1,0 +1,145 @@
+/* הגדרות כלליות לעמוד */
+.order-history-page {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* רקע אפרפר עדין כמו בדף ההרשמה */
+    min-height: 100vh;
+    direction: rtl; /* יישור לימין */
+}
+
+/* הכרטיס הלבן המרכזי */
+.order-history-card {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* צל עדין */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #46d9e1; /* קו טורקיז מתחת לכותרת */
+    padding-bottom: 10px;
+}
+
+/* עיצוב כל הזמנה בנפרד */
+.order-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.order-item:hover {
+    border-color: #46d9e1; /* הדגשה בטורקיז במעבר עכבר */
+}
+
+.order-item p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+/* הדגשת נתונים חשובים */
+.order-item p strong {
+    color: #333;
+}
+
+/* עיצוב רשימת המוצרים בתוך ההזמנה */
+.order-items {
+    background-color: #fcfcfc;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.order-items h4 {
+    margin: 0 0 10px 0;
+    color: #46d9e1;
+    font-size: 16px;
+}
+
+.details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 13px;
+}
+
+.order-items li:last-child {
+    border-bottom: none;
+}
+
+/* עיצוב הסטטוס (אופציונלי - לפי צבעים) */
+.order-item p:nth-child(4) {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.updateStaus{
+    display: flex;
+    align-items: center;
+}
+
+
+.updateStaus {
+    display: flex;
+    justify-content: flex-start; /* משנה את הכפתור לצד ימין (בגלל ה-RTL) */
+    margin-top: 15px;
+}
+
+/* עיצוב הכפתור */
+.updateStatus-btn {
+    background-color: #46d9e1; /* צבע הטורקיז מהלוגו והאתר */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* פינות מעוגלות עדינות */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease; /* אנימציה חלקה לשינויי צבע */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-btn{
+    background-color: #1ac1ca; 
+}
+
+
+
+/* אפקט מעבר עכבר - צבע כהה יותר מעט */
+.updateStatus-btn:hover {
+    background-color: #4dbbc0;
+    transform: translateY(-1px); /* קפיצה קטנה למעלה */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.admin-btn:hover{
+    background-color: #07abb4; 
+}
+
+/* אפקט לחיצה */
+.updateStatus-btn:active {
+    transform: translateY(0);
+}
+
+/* עיצוב כפתור מושבת (כשכבר לחצו עליו) */
+.updateStatus-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

@@ -1,0 +1,33 @@
+<p-card [header]="product?.name" class="custom-card shadow-2 hover:shadow-4 transition-duration-300">
+    <ng-template pTemplate="header">
+        <div class="product-image-container">
+            <img [src]="product?.imageUrl" [alt]="product?.name" class="product-image" />
+        </div>
+    </ng-template>
+
+    <div class="flex flex-column align-items-center gap-2">
+        <span class="text-2xl font-semibold text-primary">
+            {{ product?.price | currency:'ILS':'symbol' }}
+        </span>
+    </div>
+
+    <ng-template pTemplate="footer">
+        @if (isAdmin) {
+            <p-button 
+                label="עריכת מוצר" 
+                icon="pi pi-pencil" 
+                class="w-full" 
+                styleClass="w-full p-button-raised p-button-warning"
+                (click)="onEdit()">
+            </p-button>
+        } @else {
+            <p-button 
+                label="הוספה לסל" 
+                icon="pi pi-shopping-cart" 
+                class="w-full" 
+                styleClass="w-full p-button-raised p-button-primary"
+                (click)="onAddToCart()">
+            </p-button>
+        }
+    </ng-template>
+</p-card>

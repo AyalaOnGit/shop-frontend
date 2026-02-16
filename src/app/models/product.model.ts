@@ -1,0 +1,33 @@
+
+export interface CartItem {
+        id: number;
+        name: string;
+        price: number;
+        imageUrl: string;
+        // השדות החדשים שהוספנו:
+        color?: string;       // סימן השאלה אומר שזה אופציונלי (כי בהתחלה אין צבע)
+        customText?: string;
+        quantity?: number;    // רלוונטי בעיקר לסל
+        popularColor?: string; // נתוני ברירת המחדל מהקטלוג
+        topText?: string;
+        category?: string;
+}
+
+export interface ProductDTO{
+        ProductId:number;
+        ProductName:string;
+        price: number;
+        imageUrl: string;
+        Description: string;
+        CategoryDTO:CategoryDTO;
+
+        color?: string;      
+        customText?: string;
+        quantity?: number;    
+        popularColor?: string; 
+        topText?: string;
+}
+
+export interface CategoryDTO{
+        CategoryName: string;
+}

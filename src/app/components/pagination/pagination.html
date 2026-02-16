@@ -1,0 +1,34 @@
+
+<!-- <div class="flex flex-column gap-3" [@listAnimation]="pagedItems.length">
+    @for (item of pagedItems; track item.id) {
+      <p-card class="cart-item-card">
+         </p-card>
+    }
+  </div> -->
+  
+  @if (totalPages > 1) {
+    <div class="pagination-controls flex align-items-center justify-content-center gap-3 mt-4 p-3 bg-gray-50 border-round-pill shadow-1">
+      <p-button 
+        icon="pi pi-chevron-right" 
+        label="הקודם" 
+        [disabled]="currentPage === 1" 
+        (click)="goToPage(currentPage - 1)"
+        styleClass="p-button-text p-button-sm">
+      </p-button>
+  
+      <div class="flex align-items-center gap-2 font-medium">
+        <span class="text-primary font-bold">{{currentPage}}</span>
+        <span class="text-400">/</span>
+        <span>{{totalPages}}</span>
+      </div>
+  
+      <p-button 
+        icon="pi pi-chevron-left" 
+        iconPos="right"
+        label="הבא" 
+        [disabled]="currentPage === totalPages" 
+        (click)="goToPage(currentPage + 1)"
+        styleClass="p-button-text p-button-sm">
+      </p-button>
+    </div>
+  }

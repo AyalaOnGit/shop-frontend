@@ -1,0 +1,44 @@
+
+<div class="product-page">
+    <div class="right-side">
+        <div class="product-image">
+            <img class="real-img" [src]="productImage" alt="cup_of_coffee">       
+        </div>
+    </div>
+
+    <div class="left-side">
+        <h1 class="product-title">{{productName}}</h1>
+        <p class="product-description">{{ productDescription }}</p>
+        <p class="product-price">{{productPrice}} ₪</p>
+
+        <h3>הטקסט שלך להדפסה:</h3>
+        <input type="text" [(ngModel)]="userText" placeholder="הכנס טקסט להדפסה">
+
+        <div class="color-selection">
+            <h3>בחר צבע</h3>
+            <div class="colors-row">
+                <div *ngFor="let color of colors" 
+                    class="color-box" 
+                    [class.active]="selectedColor === color"
+                    (click)="selectColor(color)">
+                    {{ color }}
+                </div>
+            </div>
+        </div>
+
+        <button class="add-to-cart-btn" [disabled]="!selectedColor" (click)="addToCart()">
+            {{ selectedColor ? 'הוספה לסל' : 'נא לבחור צבע' }}
+        </button>
+
+        <div class="share-link-container">
+            <a (click)="copyLink()" class="copy-link">העתקת קישור למוצר</a>
+            <div *ngIf="showToast" class="toast-message">
+                 הקישור הועתק בהצלחה!
+            </div>  
+        </div>
+
+
+    </div>
+
+
+</div>

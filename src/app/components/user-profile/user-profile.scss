@@ -1,0 +1,52 @@
+:host ::ng-deep {
+    // 1. איפוס ויישור העטיפה של האייקון
+    .p-iconfield {
+      display: flex !important;
+      align-items: center !important; // מרכוז אנכי מושלם
+      position: relative !important;
+      width: 100%;
+  
+      // 2. ביטול כל ההגדרות הישנות של האייקון שגורמות לו לצוף למעלה
+      .p-inputicon {
+        position: absolute !important;
+        top: unset !important;       // מבטל את ה-50% של PrimeNG
+        bottom: unset !important;
+        transform: none !important;  // מבטל את ההזזה של PrimeNG
+        left: 12px !important;       // מרחק קבוע מהצד
+        margin: 0 !important;        // ביטול מרווחים מיותרים
+        display: flex !important;
+        align-items: center !important;
+        pointer-events: none;
+        color: #64748b;              // צבע אפור מקצועי
+      }
+  
+      // 3. הגדרת האינפוט עצמו
+      .p-inputtext {
+        height: 45px !important;
+        padding-left: 2.8rem !important; // רווח לטקסט שלא יסתיר את האייקון
+        width: 100% !important;
+        line-height: 1 !important;
+      }
+    }
+  
+    // 4. יישור שאר השדות (אלו בלי האייקונים) שיהיו באותו גובה
+    .p-inputtext:not(.p-iconfield .p-inputtext) {
+      height: 45px !important;
+      width: 100% !important;
+    }
+  
+    // 5. יישור הגריד - מבטיח שכל השדות בשורה יתחילו מאותו גובה
+    .grid {
+      display: flex;
+      align-items: flex-start; 
+    }
+  }
+  
+  // 6. יישור הלייבלים למעלה
+  .field-group {
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+  }

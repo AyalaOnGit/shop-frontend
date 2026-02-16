@@ -1,0 +1,171 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: sans-serif;
+
+}
+
+.product-page{
+    padding-top: 150px;
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: center; 
+    align-items: flex-start;    
+    padding: 40px;
+    gap:50px;
+}
+
+.right-side{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+
+}
+.real-img{
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    border-radius: 5px;
+
+}
+
+.left-side{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    justify-content: flex-end;
+    max-width: 500px;
+
+}
+.product-price {
+    font-size: 1.2rem; /* להגדיל משמעותית */
+    font-weight: 600; /* עובי מודגש מאוד */
+    color: #333; /* צבע כהה ובולט */
+    margin: 10px 0 50px;
+    display: block;
+}
+
+/* אופציה: להוסיף רקע קטן או קו תחתון עדין */
+.product-price::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #46c1e1; /* הצבע הכחול של הכפתור שלך */
+    margin-top: 5px;
+}
+.colors-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.color-box{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px 20px;
+    border: 2px #46d9e1 dashed;
+    border-style: dashed;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.color-box {
+    background-color: #f9f9f9; /* צבע ניטרלי עדין */
+    border: 1px solid #e0e0e0;
+    color: #888; /* טקסט קצת יותר בהיר */
+    transition: all 0.3s ease;
+}
+
+.color-box:hover{
+    background-color: #ddd;
+}
+
+.color-box.active{
+    border-color: #46d9e1;
+    background-color: #e7f1ff;
+
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    direction: ltr;
+
+}
+.add-to-cart-btn {
+  margin-top: 15px;
+  padding: 15px 30px;
+  background-color: #46d9e1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  /* border-bottom: #46d9e1 solid 3px;
+    border-bottom: #46d9e1 solid 3px; */
+
+}
+
+
+.add-to-cart-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+
+.share-link-container{
+    position: relative;
+    text-align: end;
+    margin-top: -5px;
+}
+
+.copy-link {
+    color: #46d9e1;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    margin-left: 8px;
+    top:5px
+}
+
+.copy-link:hover {
+    color: #46c1e1;
+}
+
+.toast-message {
+    position: absolute;
+    top: -40px; /* מופיע מעל הקישור */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    animation: fadeInOut 0.5s; /* אפקט כניסה נעים */
+}
+
+/* אנימציה קטנה לכניסה חלקה */
+@keyframes fadeInOut {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}

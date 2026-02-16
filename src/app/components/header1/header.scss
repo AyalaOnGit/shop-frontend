@@ -1,0 +1,19 @@
+.nav-item {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+  
+  .active-link {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+  }
+  
+  /* מוודא שה-Badge יושב טוב */
+  :host ::ng-deep .p-button .p-badge {
+    margin-right: 8px; /* קצת רווח מהטקסט */
+  }

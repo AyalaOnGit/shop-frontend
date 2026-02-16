@@ -1,0 +1,32 @@
+
+<div class="order-history-page">
+    <div class="order-history-card">
+    <h2>{{ userService.isAdmin() ? 'ניהול הזמנות מערכת' : 'היסטוריית הזמנות שלי' }}</h2>
+    <div class="order-item" *ngFor="let order of ordersHistory">
+            <div class="details">
+                <p>מספר הזמנה: {{order.orderId}}</p>
+                <p>תאריך הזמנה: {{order.orderDate}}</p>
+                <p>סכום הזמנה: {{order.orderSum}}</p>
+                <p>סטטוס הזמנה: {{order.status}}</p>
+                <div class="order-items">
+                    <h4>פרטי פריטים:</h4>
+                    <ul>
+                        <li *ngFor="let item of order.orderItems">
+                            מוצר: {{item.productName}}, כמות: {{item.quantity}}, מחיר ליחידה: {{item.price}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="updateStaus">
+
+                <button *ngIf="!userService.isAdmin()" class="updateStatus-btn" (click)="updateOrderStatus(order.orderId)" [disabled]="order.status==='הגיע'">סמן שקיבלתי את החבילה</button>
+                <button *ngIf="userService.isAdmin()" class="updateStatus-btn admin-btn" (click)="updateOrderStatus(order.orderId)" [disabled]="order.status==='הגיע'">עדכן לשלב הבא</button>
+
+            </div>
+        </div>
+        <div *ngIf="ordersHistory.length === 0" class="no-orders">
+            <p>לא נמצאו הזמנות עבור משתמש זה.</p>
+        </div>
+</div>
