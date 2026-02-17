@@ -8,12 +8,12 @@ import { DividerModule } from 'primeng/divider';
 import { Cart } from '../../services/cart';
 import {Product} from '../../services/product';
 import {CartItem } from '../../models/product'; // המודל שיצרת
-import { header1 } from '../header1/header';
+import { Header } from '../header1/header';
 import { Footer1 } from '../footer1/footer';
 
 @Component({
   selector: 'app-products-page',
-  imports: [Footer1, header1, Filter,ProductCardMin,Pagination,RouterLink,ButtonModule,DividerModule],
+  imports: [Footer1,Header, Filter,ProductCardMin,Pagination,RouterLink,ButtonModule,DividerModule],
   templateUrl: './products-page.html',
   styleUrl: './products-page.scss',
 })

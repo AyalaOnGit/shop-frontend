@@ -1,52 +1,77 @@
 :host ::ng-deep {
-    // 1. איפוס ויישור העטיפה של האייקון
-    .p-iconfield {
-      display: flex !important;
-      align-items: center !important; // מרכוז אנכי מושלם
-      position: relative !important;
-      width: 100%;
-  
-      // 2. ביטול כל ההגדרות הישנות של האייקון שגורמות לו לצוף למעלה
-      .p-inputicon {
-        position: absolute !important;
-        top: unset !important;       // מבטל את ה-50% של PrimeNG
-        bottom: unset !important;
-        transform: none !important;  // מבטל את ההזזה של PrimeNG
-        left: 12px !important;       // מרחק קבוע מהצד
-        margin: 0 !important;        // ביטול מרווחים מיותרים
-        display: flex !important;
-        align-items: center !important;
-        pointer-events: none;
-        color: #64748b;              // צבע אפור מקצועי
-      }
-  
-      // 3. הגדרת האינפוט עצמו
-      .p-inputtext {
-        height: 45px !important;
-        padding-left: 2.8rem !important; // רווח לטקסט שלא יסתיר את האייקון
-        width: 100% !important;
-        line-height: 1 !important;
-      }
+  .main-container {
+    background-color: #f8fafc; /* רקע עדין מאחורי הכרטיסים */
+    min-height: 100vh;
+  }
+
+  /* עיצוב אחיד לשני הכרטיסים */
+  .profile-card, .actions-card {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    transition: transform 0.2s;
+  }
+
+  /* סידור האייקונים והשדות */
+  .p-iconfield {
+    display: flex !important;
+    align-items: center !important;
+    .p-inputicon {
+      left: 12px !important;
+      color: #94a3b8;
     }
-  
-    // 4. יישור שאר השדות (אלו בלי האייקונים) שיהיו באותו גובה
-    .p-inputtext:not(.p-iconfield .p-inputtext) {
+    .p-inputtext {
+      padding-left: 2.5rem !important;
       height: 45px !important;
-      width: 100% !important;
-    }
-  
-    // 5. יישור הגריד - מבטיח שכל השדות בשורה יתחילו מאותו גובה
-    .grid {
-      display: flex;
-      align-items: flex-start; 
     }
   }
-  
-  // 6. יישור הלייבלים למעלה
-  .field-group {
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+
+  .p-inputtext:not(.p-iconfield .p-inputtext) {
+    height: 45px !important;
+  }
+
+  .field-group label {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: #476969;
+  }
+
+  /* עיצוב תיבת הטקסט של המשוב */
+  textarea {
+    resize: none;
+    border-radius: 8px;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #dbeafe;
     }
   }
+
+  /* שינוי צבע כפתור היסטוריית הזמנות */
+  .custom-history-btn {
+    /* שינוי צבע הטקסט */
+    .p-button-label {
+      color: #46d9e1 !important; /* החליפי לצבע הרצוי */
+      font-weight: 700;
+    }
+
+    /* שינוי צבע האייקון */
+    .p-button-icon {
+      color:  #46d9e1 !important;
+    }
+
+    /* שינוי צבע המסגרת (אופציונלי, כי זה outlined) */
+    border-color:  #46d9e1 !important;
+
+    /* שינוי צבע הריחוף (Hover) */
+    &:hover {
+      background: #f3fffe !important; /* רקע עדין כשעוברים עם העכבר */
+      border-color:  #46d9e1 !important;
+    }
+  }
+
+  /* שומר על גובה אחיד של הכרטיסים במסכים גדולים */
+  @media (min-width: 992px) {
+    .h-full {
+      height: 100% !important;
+    }
+  }
+}

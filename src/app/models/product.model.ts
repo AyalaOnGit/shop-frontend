@@ -20,12 +20,10 @@ export interface ProductDTO{
         imageUrl: string;
         Description: string;
         CategoryDTO:CategoryDTO;
-
-        color?: string;      
-        customText?: string;
-        quantity?: number;    
+        colors?:string[];      
         popularColor?: string; 
         topText?: string;
+        customText?: string;
 }
 
 export interface CategoryDTO{
