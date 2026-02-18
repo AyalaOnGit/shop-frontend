@@ -7,10 +7,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea'; // הנתיב החדש
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { Router } from '@angular/router';
+import { Header } from '../header1/header';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [CommonModule,ReactiveFormsModule,FormsModule,InputTextModule,TextareaModule,ButtonModule,DividerModule,IconFieldModule, InputIconModule],
+  imports: [Header,CommonModule,ReactiveFormsModule,FormsModule,InputTextModule,TextareaModule,ButtonModule,DividerModule,IconFieldModule, InputIconModule],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.scss',
 })
@@ -19,14 +21,19 @@ export class UserProfile implements OnInit {
   isEditing = false; // משתנה למעבר בין מצב תצוגה למצב עריכה
   originalValues: any; // משתנה לשמירת הנתונים המקוריים
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
+
+  goToOrderHistory() {
+    this.router.navigate(['/order-history']); // ניווט לנתיב שהגדרת ב-Routes
+  }
 
   ngOnInit(): void {
     // אתחול הטופס עם ערכי ברירת מחדל (בהמשך יגיע מהשרת)
     this.profileForm = this.fb.group({
       firstName: ['ישראל', Validators.required],
       lastName: ['ישראלי', Validators.required],
-      phone: ['050-1234567', [Validators.required, Validators.pattern('^[0-9-]*$')]],
+      phone: ['050-1234567', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      email: ['test@example.com', [Validators.required, Validators.email]], // שדה חדש
       address: ['רחוב השקד 10', Validators.required],
       city: ['ירושלים', Validators.required]
     });

@@ -50,5 +50,11 @@
 .the-card{
     height: 95vh;
     margin:5px;
+    padding: 50px !important;
+    max-width: 550px !important;
 
+}
+.the-page{
+    padding-top: 0vh !important;
+    height: 110vh !important;
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Cart } from '../../services/cart';
@@ -13,8 +13,40 @@ import { CartItem } from '../../models/product';
   templateUrl: './product-card.html',
   styleUrl: './product-card.scss',
 })
-export class ProductCardMin {
+export class ProductCardMin implements OnInit{
+  loggedUser: any = null;
+  
+  // המשתנה שביקשת - האם המשתמש הוא אדמין
   @Input() isAdmin: boolean = false;
+
+  checkUserRole() {
+    // 1. שליפת המחרוזת מה-LocalStorage
+    const userData = localStorage.getItem('loggedUser');
+
+    if (userData) {
+      try {
+        // 2. המרה מפורמט טקסט (JSON) לאובייקט JavaScript
+        this.loggedUser = JSON.parse(userData);
+
+        // 3. בדיקה האם ה-role הוא 'admin'
+        // שימוש ב-toLowerCase() עוזר למנוע בעיות אם בטעות נכתב Admin עם A גדולה
+        this.isAdmin = this.loggedUser?.role?.toLowerCase() === 'admin';
+        
+        console.log('Is Admin:', this.isAdmin);
+      } catch (error) {
+        console.error('שגיאה בפענוח נתוני משתמש:', error);
+        this.isAdmin = false;
+      }
+    } else {
+      // אם אין משתמש מחובר בכלל
+      this.isAdmin = false;
+    }
+  }
+
+  ngOnInit() {
+    this.checkUserRole();
+  }
+
   @Input() product: CartItem | null = null; // שימוש במודל במקום כתיבת אובייקט ארוך
 
   @Output() edit = new EventEmitter<CartItem>(); // מאפשר לאבא לדעת שלחצו על עריכה

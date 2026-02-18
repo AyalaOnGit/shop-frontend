@@ -24,6 +24,7 @@ export interface ProductDTO{
         colors: string[];      
         popularColor?: string; 
         topText?: string;
+        customText?: string;
 }
 
 export interface CategoryDTO{

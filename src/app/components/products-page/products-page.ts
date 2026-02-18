@@ -8,13 +8,13 @@ import { DividerModule } from 'primeng/divider';
 import { Cart } from '../../services/cart';
 import {Product} from '../../services/product';
 import {CartItem } from '../../models/product'; // המודל שיצרת
-import { header1 } from '../header1/header';
+import { Header } from '../header1/header';
 import { Footer1 } from '../footer1/footer';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-page',
-  imports: [Footer1, header1, Filter,ProductCardMin,Pagination,RouterLink,ButtonModule,DividerModule],
+  imports: [Footer1,Header, Filter,ProductCardMin,Pagination,RouterLink,ButtonModule,DividerModule],
   templateUrl: './products-page.html',
   styleUrl: './products-page.scss',
 })
@@ -22,8 +22,8 @@ export class ProductsPage implements OnInit{
   productList: CartItem[] = [];
   filteredList: CartItem[] = [];
   currentPage: number = 1; // תמיד מתחילים מדף ראשון
-  pageSize: number = 4;    // נניח שנרצה 3 מוצרים בכל דף
   private router=inject(Router);
+  pageSize: number = 5;    
 
   currentUserIsAdmin: boolean = false; // שיניתי ל-true כדי שתוכלי לראות שהעריכה עובדת
 

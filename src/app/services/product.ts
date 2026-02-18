@@ -6,15 +6,15 @@ import { Observable, of } from 'rxjs';
 })
 export class Product {
   private products = [
-    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה' },
-    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה' },
-    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה' },
-    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה' },
+    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה' ,colors: ['black', 'brown']},
+    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה' ,colors: ['black', 'brown']},
+    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },
+    { name: 'שוקולד חם', price: 12, imageUrl: 'chocolate.png', category: 'שתייה חמה' ,colors: ['black', 'brown']},
     {
       id: 1,
       name: 'בקבוק טרמי',

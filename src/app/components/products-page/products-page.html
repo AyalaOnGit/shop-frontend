@@ -30,8 +30,13 @@
     <app-filter (onFilterChange)="filterProducts($event)"></app-filter>
   </section>
 
+<<<<<<< HEAD
   <main class="grid mt-2">
     @for (item of paginatedProducts; track item.id) {
+=======
+  <main class="grid mt-3">
+    @for (item of paginatedProducts; track item.name) {
+>>>>>>> db0a47f01d12985ee359938d498e0bb2edd2ea0d
       <div class="col-12 sm:col-6 md:col-4 lg:col-3 p-2">
         <div (click)="viewProductCard(item.id)" style="cursor: pointer;">
           <app-product-card  [product]="item" [isAdmin]="currentUserIsAdmin"></app-product-card>
