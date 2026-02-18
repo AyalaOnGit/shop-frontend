@@ -1,6 +1,6 @@
 .product-image-container {
     width: 100%;
-    height: 200px; /* גובה אחיד לכל התמונות */
+    height: 250px; /* גובה אחיד לכל התמונות */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -8,15 +8,42 @@
     background-color: var(--surface-100);
     border-radius: 6px 6px 0 0;
 
-    .product-image {
+    .product-full-image {
         max-width: 100%;
         max-height: 100%;
-        object-fit: contain; /* שומר על יחס התמונה בלי לעוות אותה */
+        object-fit: cover; /* שומר על יחס התמונה בלי לעוות אותה */
         transition: transform 0.3s ease;
     }
 }
-
+/* עיצוב המיכל העליון של הכרטיס */
+.product-header-full {
+    width: 100%;
+    height: 300px; /* תוכלי לשנות את הגובה לפי הצורך */
+    overflow: hidden; /* מבטיח שהתמונה לא תצא מהגבולות המעוגלים */
+    border-radius: 12px 12px 0 0; /* מעגל רק את הפינות העליונות (תואם לכרטיס) */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .product-full-image {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100%;
+    object-fit: cover; /* פקודה קריטית: התמונה תמלא את כל השטח ותיחתך בצדדים במקום להימתח */
+    display: block;
+  }
+  
+  /* במידה ואת משתמשת ב-p-card של PrimeNG, צריך לבטל לו את ה-padding ב-header */
+  :host ::ng-deep .p-card .p-card-header {
+    padding: 0;
+    margin: 0;
+  }
 /* אפקט קטן כשמרחפים על הכרטיס */
-.custom-card:hover .product-image {
+.custom-card:hover .product-full-image {
     transform: scale(1.05);
 }
+// .custom-card{
+//     background-color: aquamarine;
+//     // height: 500px;
+//     // width: 400px;
+// }

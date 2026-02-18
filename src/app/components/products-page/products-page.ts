@@ -21,7 +21,7 @@ export class ProductsPage implements OnInit{
   productList: CartItem[] = [];
   filteredList: CartItem[] = [];
   currentPage: number = 1; // תמיד מתחילים מדף ראשון
-  pageSize: number = 4;    // נניח שנרצה 3 מוצרים בכל דף
+  pageSize: number = 5;    // נניח שנרצה 3 מוצרים בכל דף
 
   currentUserIsAdmin: boolean = false; // שיניתי ל-true כדי שתוכלי לראות שהעריכה עובדת
 
