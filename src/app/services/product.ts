@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class Product {
+
+  
   private products = [
     { name: 'כוס קפה', price: 15, imageUrl: 'coffee.png', category: 'שתייה חמה' ,colors: ['black', 'brown']},
     { name: 'ספל תה', price: 20, imageUrl: 'coffee.png', category: 'שתייה חמה',colors: ['black', 'brown'] },

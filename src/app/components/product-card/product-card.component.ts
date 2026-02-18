@@ -8,13 +8,11 @@ import { UserService } from '../../services/user.service';
 import { Router, RouterModule } from '@angular/router';
 import { OrderService } from '../../services/order.service';
 import Swal from 'sweetalert2';
-import { Header } from '../header1/header';
-import { Footer1 } from '../footer1/footer';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [ Footer1,Header,FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
