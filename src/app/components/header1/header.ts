@@ -1,49 +1,36 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
-import { Cart } from '../../services/cart'; 
+import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
-import { Menu, MenuModule } from 'primeng/menu';
 import { CommonModule } from '@angular/common';
+import { Cart } from '../../services/cart';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MenuModule, RouterLink, RouterLinkActive, ButtonModule, DividerModule],
+  imports: [CommonModule, MenuModule, RouterLink, RouterLinkActive, ButtonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header implements OnInit { // שם הקלאס מתוקן לאות גדולה
-  @ViewChild('menu') menu!: Menu;
-
-  profileMenuItems: MenuItem[] | undefined;
-  overlayTimer: any;
+export class Header implements OnInit {
+  profileMenuItems: MenuItem[] = [];
 
   constructor(public cart: Cart) {}
 
   ngOnInit() {
     this.profileMenuItems = [
-      { label: 'עריכת פרטי לקוח', icon: 'pi pi-user-edit', routerLink: '/profile' },
-      { label: 'היסטוריית הזמנות', icon: 'pi pi-history', routerLink: '/order-history' }
+      {
+        // label: 'החשבון שלי',
+        items: [
+          { label: 'התחברות', icon: 'pi pi-sign-in', routerLink: '/connection'},
+          { separator: true },
+          { label: 'פרופיל אישי', icon: 'pi pi-user', routerLink: '/profile' },
+          { label: 'הזמנות שלי', icon: 'pi pi-shopping-bag', routerLink: '/order-history' },
+          { separator: true },
+          { label: 'התנתקות', icon: 'pi pi-power-off' }
+        ]
+      }
     ];
-  }
-
-  showMenu(event: any) {
-    this.clearTimer();
-    this.menu.show(event);
-  }
-
-  hideMenu() {
-    this.overlayTimer = setTimeout(() => {
-      this.menu.hide();
-    }, 200); // נותן למשתמש 200 מילישניות לעבור עם העכבר לתפריט
-  }
-
-  clearTimer() {
-    if (this.overlayTimer) {
-      clearTimeout(this.overlayTimer);
-      this.overlayTimer = null;
-    }
   }
 }

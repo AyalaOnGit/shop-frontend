@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
+import { Header } from '../header1/header';
 
 @Component({
   selector: 'app-connection',
   standalone: true,
-  imports: [CommonModule,RegisterComponent,LoginComponent],
+  imports: [Header,CommonModule,RegisterComponent,LoginComponent],
   templateUrl: './connection.component.html',
   styleUrl: './connection.component.css'
 })

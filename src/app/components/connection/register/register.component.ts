@@ -2,12 +2,13 @@ import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule,FormControl, Validators, AbstractControl} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Header } from '../../header1/header';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [ Header,CommonModule,ReactiveFormsModule],
   templateUrl: './register.component.html',
   
   styleUrls: [ './register.component.css', '../connection.component.css']

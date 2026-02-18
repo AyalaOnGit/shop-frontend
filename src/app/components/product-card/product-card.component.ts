@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Header } from '../header1/header';
+import { Footer1 } from '../footer1/footer';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [ Footer1,Header,FormsModule, CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
