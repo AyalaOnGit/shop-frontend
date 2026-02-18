@@ -11,4 +11,6 @@ export interface OrderItemDTO {
   productName: string;
   quantity: number;
   price: number;
+  popularColor:string;
+  customText:string;
 }

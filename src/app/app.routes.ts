@@ -13,7 +13,7 @@ export const routes: Routes = [
     { path: 'profile', component: UserProfile },  // דף העגלה
    
    
-    { path: 'products', component: ProductCardComponent },
+    {path: 'products/:id', component: ProductCardComponent },
     {path: 'home', component: HomeComponent },
     {path: 'connection', component: ConnectionComponent },
     {path: 'order-history', component: OrderHistoryComponent},

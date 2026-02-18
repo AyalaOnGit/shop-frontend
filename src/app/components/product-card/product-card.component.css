@@ -23,15 +23,28 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    flex: 1;
+    max-width: 50%;
 
 
 }
-.real-img{
+
+
+.real-img {
     width: 100%;
-    object-fit: cover;
+    max-width: 450px; /* מגביל רוחב מקסימלי */
+    max-height: 500px; /* מגביל גובה מקסימלי */
+    object-fit: contain; /* שומר על פרופורציות בלי לחתוך את התמונה */
+    background-color: #f4f4f4; /* רקע עדין למקרה שהתמונה קטנה מדי */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
     border-radius: 5px;
+    display: block;
+    margin: 0 auto; /* מרכז את התמונה */
+}
 
+.right-side {
+    flex: 1; /* נותן לה מקום שווה */
+    max-width: 50%; /* מונע ממנה לעבור את חצי המסך */
 }
 
 .left-side{
@@ -103,17 +116,16 @@
     font-weight: bold;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"], textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
-    direction: ltr;
-
+    direction: rtl;
 }
-.add-to-cart-btn {
+.add-to-cart-btn , .adminActions, .admin-btn{
   margin-top: 15px;
   padding: 15px 30px;
   background-color: #46d9e1;
@@ -122,9 +134,23 @@ input[type="text"] {
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-  /* border-bottom: #46d9e1 solid 3px;
-    border-bottom: #46d9e1 solid 3px; */
+}
 
+.adminActions {
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap; /* מאפשר לכפתורים לרדת שורה אם אין מקום */
+    gap: 10px;       /* יוצר רווח קבוע בין הכפתורים */
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.admin-btn{
+  width: 47%;
+  max-height: 100%;
 }
 
 
@@ -168,4 +194,153 @@ input[type="text"] {
 @keyframes fadeInOut {
     from { opacity: 0; transform: translate(-50%, 10px); }
     to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* שדות קלט במצב עריכה */
+.edit-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed #46c1e1; /* מסגרת מקווקוות נותנת תחושה של עריכה */
+    border-radius: 5px;
+    background-color: #fffcf0; /* רקע צהבהב עדין להבדיל משדה רגיל */
+    font-size: 1rem;
+    outline: none;
+}
+
+.title-edit {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.desc-edit {
+    min-height: 100px;
+    resize: vertical; /* מאפשר למנהל להגדיל את התיבה */
+    font-family: inherit;
+}
+
+.price-edit-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-edit {
+    width: 100px;
+}
+
+/* ניהול צבעים בעריכה */
+.edit-mode {
+    position: relative;
+    border-style: solid;
+}
+
+.remove-color {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.remove-color:hover {
+    background-color: #ff0000;
+    color: white;
+    border-color: #ff0000;
+    transform: scale(1.2); /* גדל מעט בסימון */
+}
+
+.remove-color:active {
+    transform: scale(0.9); /* מתכווץ בלחיצה */
+}
+
+.add-color-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.add-color-container .small {
+    flex: 2;
+}
+
+.add-color-container button {
+    flex: 1;
+    background-color: #46c1e1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* שכבת עריכה על התמונה */
+.edit-image-overlay {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.edit-image-overlay .admin-btn {
+    background-color: #333; /* צבע כהה וסולידי */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    width: auto; /* שלא יהיה על כל הרוחב אם לא צריך */
+    margin-top: 10px;
+}
+
+.edit-image-overlay .admin-btn:hover {
+    background-color: #46d9e1; /* הופך לכחול המותג בסימון */
+}
+
+/* כפתורי שמירה וביטול (admin-btn-II) */
+.admin-btn-II {
+    width: 49%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.save-btn {
+    background-color: #2ecc71; /* ירוק לשמירה */
+}
+
+.cancel-btn {
+    background-color: #e74c3c; /* אדום לביטול */
+}
+
+.admin-btn-II:hover {
+    filter: brightness(1.1); /* מבהיר מעט בסימון */
+    transform: translateY(-2px); /* קופץ מעט למעלה */
+    transition: 0.2s;
+}
+
+.admin-btn-II:active {
+    transform: translateY(0); /* חוזר למקום בלחיצה */
+    filter: brightness(0.9); /* מתכהה מעט בלחיצה */
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); /* אפקט שקיעה */
+}
+
+.reset-btn {
+    background-color: #95a5a6; /* צבע אפור מקצועי */
+    margin-top: 10px; /* קצת רווח אם הכפתורים יורדים שורה */
+    width: 100% !important; /* שהשחזור יהיה לרוחב כל השורה מתחת לשמירה וביטול */
+}
+
+.reset-btn:hover {
+    background-color: #7f8c8d;
 }

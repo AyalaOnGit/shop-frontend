@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProductCardMin } from '../product-card-min/product-card';
 import { Filter } from '../filter/filter';
 import { Pagination } from '../pagination/pagination';
@@ -10,6 +10,7 @@ import {Product} from '../../services/product';
 import {CartItem } from '../../models/product'; // המודל שיצרת
 import { header1 } from '../header1/header';
 import { Footer1 } from '../footer1/footer';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-page',
@@ -22,6 +23,7 @@ export class ProductsPage implements OnInit{
   filteredList: CartItem[] = [];
   currentPage: number = 1; // תמיד מתחילים מדף ראשון
   pageSize: number = 4;    // נניח שנרצה 3 מוצרים בכל דף
+  private router=inject(Router);
 
   currentUserIsAdmin: boolean = false; // שיניתי ל-true כדי שתוכלי לראות שהעריכה עובדת
 
@@ -75,5 +77,11 @@ export class ProductsPage implements OnInit{
   changePage(newPage: number) {
     this.currentPage = newPage;
     window.scrollTo(0, 0); // מקפיץ את הדף לראש הרשימה כדי שלא יצטרכו לגלול למעלה
+  }
+
+  //פונקציה לניווט
+  viewProductCard(productId:number |string){
+    console.log("aaa");
+    this.router.navigate(['/products',productId])
   }
 }
