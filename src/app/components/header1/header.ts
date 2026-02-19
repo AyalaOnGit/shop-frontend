@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { Cart } from '../../services/cart';
+import { UserService } from '../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -18,12 +20,45 @@ export class Header implements OnInit {
 
   constructor(public cart: Cart) {}
 
+    private router=inject(Router);
+    userService=inject(UserService);
+    
+    conection(){
+    if(this.userService.getCurrentUser())
+    {
+      Swal.fire({
+            title: '?להתנתק',
+            text: ` ${this.userService.getCurrentUser()!.UserFirstName} ${this.userService.getCurrentUser()!.UserLastName} את/ה כבר מחובר למערכת בשם  `,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'להתנתק',
+            cancelButtonText: 'להישאר מחובר'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.userService.logout();
+              this.router.navigate(['/connection']);
+            }
+          });
+      }
+        else{
+          this.router.navigate(['/connection']);
+        }
+    // console.log(this.userService.getCurrentUser());
+  }
+
   ngOnInit() {
     this.profileMenuItems = [
       {
         // label: 'החשבון שלי',
+        
         items: [
-          { label: 'התחברות', icon: 'pi pi-sign-in', routerLink: '/connection'},
+          {
+            label: 'התחברות',
+            icon: 'pi pi-sign-in',
+            command: () => { this.conection();}
+            },
           { separator: true },
           { label: 'פרופיל אישי', icon: 'pi pi-user', routerLink: '/profile' },
           { label: 'הזמנות שלי', icon: 'pi pi-shopping-bag', routerLink: '/order-history' },

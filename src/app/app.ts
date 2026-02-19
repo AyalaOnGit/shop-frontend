@@ -5,10 +5,12 @@ import { ProductsPage } from './components/products-page/products-page';
 import { Filter } from './components/filter/filter';
 import { Pagination } from './components/pagination/pagination';
 import { UserProfile } from './components/user-profile/user-profile';
+import { Footer1 } from './components/footer1/footer';
+import { Header } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ProductCardMin,ProductsPage,Filter,Pagination,UserProfile],
+  imports: [RouterOutlet,ProductCardMin,ProductsPage,Filter,Pagination,UserProfile,Footer1, Header],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
