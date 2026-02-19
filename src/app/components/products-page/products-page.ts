@@ -26,7 +26,7 @@ export class ProductsPage implements OnInit{
   productList: CartItem[] = [];
   filteredList: CartItem[] = [];
   currentPage: number = 1; // תמיד מתחילים מדף ראשון
-  pageSize: number = 5;    
+  pageSize: number = 4;    
 
   currentUserIsAdmin: boolean = false; // שיניתי ל-true כדי שתוכלי לראות שהעריכה עובדת
 
