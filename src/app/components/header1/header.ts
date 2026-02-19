@@ -48,6 +48,24 @@ export class Header implements OnInit {
     // console.log(this.userService.getCurrentUser());
   }
 
+  disengagement(){
+    Swal.fire({
+            title: 'את/ה בטוח/ה?',
+            text: `תוכל/י לשוב ולהתחבר מחדש בהמשך`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'להתנתק',
+            cancelButtonText: 'להישאר מחובר'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.userService.logout();
+              this.router.navigate(['/home']);
+            }
+          });
+  }
+
   ngOnInit() {
     this.profileMenuItems = [
       {
@@ -63,7 +81,7 @@ export class Header implements OnInit {
           { label: 'פרופיל אישי', icon: 'pi pi-user', routerLink: '/profile' },
           { label: 'הזמנות שלי', icon: 'pi pi-shopping-bag', routerLink: '/order-history' },
           { separator: true },
-          { label: 'התנתקות', icon: 'pi pi-power-off' }
+          { label: 'התנתקות', icon: 'pi pi-power-off', command: ()=>{this.disengagement();} }
         ]
       }
     ];

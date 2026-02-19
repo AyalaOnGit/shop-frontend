@@ -6,7 +6,7 @@ import { Filter } from './components/filter/filter';
 import { Pagination } from './components/pagination/pagination';
 import { UserProfile } from './components/user-profile/user-profile';
 import { Footer1 } from './components/footer1/footer';
-import { Header } from 'primeng/api';
+import { Header } from './components/header1/header';
 
 @Component({
   selector: 'app-root',
