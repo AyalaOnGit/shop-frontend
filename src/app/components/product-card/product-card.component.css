@@ -9,13 +9,13 @@
 
 .product-page{
     padding-top: 150px;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     /* flex-direction: row-reverse; */
     justify-content: center; 
     align-items: flex-start;    
     padding: 40px;
-    gap:50px;
+    gap:40px;
 }
 
 .right-side{
@@ -40,6 +40,7 @@
     border-radius: 5px;
     display: block;
     margin: 0 auto; /* מרכז את התמונה */
+    margin-top: 10px;
 }
 
 .right-side {
@@ -48,11 +49,11 @@
 }
 
 .left-side{
-    margin-top: 15px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: 20px;
+    gap: 15px;
     justify-content: flex-end;
     max-width: 500px;
 
@@ -79,7 +80,7 @@
     gap: 10px;
     margin-top: 10px;
     width: 100%;
-    height: 70px;
+    height: 60px;
     justify-content: space-between;
 }
 
