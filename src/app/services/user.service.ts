@@ -10,6 +10,7 @@ export class UserService {
 
 
   isAdmin= computed(() => this.currentUser()?.role === 'admin');
+  
   getCurrentUser(){
     return this.currentUser();
   }

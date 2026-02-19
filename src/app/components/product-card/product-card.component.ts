@@ -26,7 +26,7 @@ export class ProductCardComponent {
   
   private userService=inject(UserService);
 
-  isAdmin=this.userService.isAdmin();
+  isAdmin=this.userService.isAdmin;
 
   currentProduct!: ProductDTO;
 
@@ -78,9 +78,31 @@ export class ProductCardComponent {
     this.selectedColor = color;
   }
 
-  addToCart() {
-  alert(`המוצר ${this.productName} בצבע ${this.selectedColor} עם הטקסט: "${this.userText}" נוסף לסל!`);
+  //הוספה לסל כולל ולידציה שיש טקסט לקוח
+  addToCart(){
+    if (!this.userText || this.userText.trim() === '') {
+      Swal.fire({
+          title: 'אופססס',
+          text: "...נראה ששכחת להוסיף טקסט",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#46c1e1',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'להמשיך בכל אופן',
+          cancelButtonText: 'ביטול'
+        }).then((result) => {
+          if (result.isConfirmed)
+            this.addToCartLogic();
+          });
+        }
+      else
+        this.addToCartLogic();
+  }
+  
+  addToCartLogic() {
+      alert(`המוצר ${this.productName} בצבע ${this.selectedColor} עם הטקסט: "${this.userText}" נוסף לסל!`);
 }
+
 
   copyLink() {
     const url=window.location.href;

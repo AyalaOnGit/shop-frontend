@@ -23,8 +23,8 @@
             <input type="number" [(ngModel)]="productPrice" class="edit-input price-edit">
         </div>
 
-        <h3 *ngIf="!isAdmin" >הטקסט שלך להדפסה:</h3>
-        <input *ngIf="!isAdmin" type="text" [(ngModel)]="userText" placeholder="הכנס טקסט להדפסה">
+        <h3 *ngIf="!isAdmin()" >הטקסט שלך להדפסה:</h3>
+        <input *ngIf="!isAdmin()" type="text" [(ngModel)]="userText" placeholder="הכנס טקסט להדפסה">
 
         
         <div class="color-selection">
@@ -55,11 +55,11 @@
             </div>
         </div>
 
-        <button *ngIf="!isAdmin" class="add-to-cart-btn" [disabled]="!selectedColor" (click)="addToCart()">
+        <button *ngIf="!isAdmin()" class="add-to-cart-btn" [disabled]="!selectedColor" (click)="addToCart()">
             {{ selectedColor ? 'הוספה לסל' : 'נא לבחור צבע' }}
         </button>
 
-        <div *ngIf="isAdmin" class="adminActions">
+        <div *ngIf="isAdmin()" class="adminActions">
             <ng-container  *ngIf="isEditing">
                 <button class="save-btn admin-btn-II" (click)="saveProduct()">שמור שינויים</button>
                 <button class="cancel-btn admin-btn-II" (click)="cancelEdit()">ביטול</button>

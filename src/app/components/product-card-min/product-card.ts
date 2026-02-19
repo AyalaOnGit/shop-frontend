@@ -66,7 +66,10 @@ export class ProductCardMin implements OnInit{
     }
   }
   constructor(private cartService: Cart) {} // הזרקת השירות
-  onAddToCart() {
+
+  onAddToCart(event: Event) {
+      event.stopPropagation()
+
     if (this.product) {
       // כאן אנחנו יוצרים את המוצר ה"סופי" שנכנס לסל
       const customProduct = {
