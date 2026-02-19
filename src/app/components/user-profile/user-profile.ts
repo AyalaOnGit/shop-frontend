@@ -9,10 +9,11 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { Router } from '@angular/router';
 import { Header } from '../header1/header';
+import { Footer1 } from '../footer1/footer';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [Header,CommonModule,ReactiveFormsModule,FormsModule,InputTextModule,TextareaModule,ButtonModule,DividerModule,IconFieldModule, InputIconModule],
+  imports: [Header,Footer1,CommonModule,ReactiveFormsModule,FormsModule,InputTextModule,TextareaModule,ButtonModule,DividerModule,IconFieldModule, InputIconModule],
   templateUrl: './user-profile.html',
   styleUrl: './user-profile.scss',
 })

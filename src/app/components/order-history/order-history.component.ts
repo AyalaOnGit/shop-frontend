@@ -3,11 +3,13 @@ import { OrderService } from '../../services/order.service';
 import { OrderDTO } from '../../models/order.model';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
+import { Footer1 } from '../footer1/footer';
+import { Header } from '../header1/header';
 
 @Component({
   selector: 'app-order-history',
   standalone: true,
-  imports: [CommonModule],
+  imports: [Footer1,Header,CommonModule],
   templateUrl: './order-history.component.html',
   styleUrl: './order-history.component.css'
 })

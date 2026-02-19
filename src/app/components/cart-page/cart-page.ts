@@ -7,10 +7,12 @@ import { CurrencyPipe } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { Header } from '../header1/header';
+import { Footer1 } from '../footer1/footer';
 
 @Component({
   selector: 'app-cart-page',
-  imports: [RouterLink,CurrencyPipe,DividerModule,ButtonModule,CardModule],
+  imports: [Header,Footer1,RouterLink,CurrencyPipe,DividerModule,ButtonModule,CardModule],
   templateUrl: './cart-page.html',
   styleUrl: './cart-page.scss',
   animations: [
