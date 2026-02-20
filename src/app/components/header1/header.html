@@ -26,14 +26,22 @@
         </p-menu>
       </div>
     </div>
-
-    <p-button
-      label="סל קניות"
-      icon="pi pi-shopping-bag"
-      [badge]="cart.totalItemsCount.toString()"
-      badgeSeverity="danger"
-      styleClass="cart-btn"
-      routerLink="/cart">
-    </p-button>
+    @if (userService.isAdmin()) {
+      <p-button
+        label="הוספת מוצר"
+        icon="pi pi-plus-circle"
+        styleClass="admin-add-btn"
+        routerLink="/admin/add-product">
+      </p-button>
+    }@else{
+      <p-button
+        label="סל קניות"
+        icon="pi pi-shopping-bag"
+        [badge]="cart.totalItemsCount.toString()"
+        badgeSeverity="danger"
+        styleClass="cart-btn"
+        routerLink="/cart">
+      </p-button>
+   }
   </div>
 </nav>
